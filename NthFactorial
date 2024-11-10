@@ -23,8 +23,8 @@
     <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
 </div>
 
+
 <script>
-    // Main function to calculate and display results
     function calculate() {
         const n = parseInt(document.getElementById("numberInput").value);
 
@@ -32,29 +32,26 @@
             alert("Please enter a positive integer.");
             return;
         }
-
-        // Calculate nth factorial using a while loop
         let factorial = 1, i = 1;
         while (i <= n) {
             factorial *= i;
             i++;
         }
 
-        // Calculate sum of first n numbers using a do-while loop
+
         let sum = 0, j = 1;
         do {
             sum += j;
             j++;
         } while (j <= n);
 
-        // Calculate average of first n numbers using a for loop
+
         let average = 0;
         for (let k = 1; k <= n; k++) {
             average += k;
         }
         average /= n;
 
-        // Display results
         document.getElementById("factorialResult").innerText = factorial;
         document.getElementById("sumResult").innerText = sum;
         document.getElementById("averageResult").innerText = average.toFixed(2);
