@@ -1,106 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Factorial, Sum, and Average Calculator with W3.CSS</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial, Sum, and Average Calculator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: lightblue;
-        }
-
-        .center {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-            color: antiquewhite;
-        }
-
-        h2 {
-            text-align: center;
-            color: black;
-        }
-
-        #results {
-            margin-top: 20px;
-        }
-        
-        #results p {
-            margin: 5px 0;
-        }
-
-        button {
-            margin-top: 10px;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
-    <h1>CS 1130</h1>
-    <p>Introduction to Computing</p>
+<header class="w3-container w3-theme w3-padding">
+    <h1 class="w3-center">Factorial, Sum, and Average Calculator</h1>
+</header>
 
-    <div class="center">
-        <div>
-            <h2>Calculate Factorial, Sum, and Average</h2>
+<div class="w3-container w3-padding">
+    <label for="numberInput">Enter an integer (n):</label>
+    <input class="w3-input w3-border" type="number" id="numberInput" required>
+    <button class="w3-button w3-theme w3-margin-top" onclick="calculate()">Calculate</button>
+</div>
 
-            <!-- Input Field and Button -->
-            <div>
-                <label for="numberInput">Enter an integer (n):</label>
-                <input type="number" id="numberInput" required>
-                <button onclick="calculate()">Calculate</button>
-            </div>
+<div id="results" class="w3-container w3-padding">
+    <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
+    <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
+    <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
+</div>
 
-            <!-- Display Results -->
-            <div id="results">
-                <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
-                <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
-                <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
-            </div>
-        </div>
-    </div>
+<script>
+    function calculate() {
+        const n = parseInt(document.getElementById("numberInput").value);
 
-    <script>
-        function calculate() {
-            const n = parseInt(document.getElementById("numberInput").value);
-
-            if (isNaN(n) || n < 0) {
-                alert("Please enter a positive integer.");
-                return;
-            }
-            let factorial = 1, i = 1;
-            while (i <= n) {
-                factorial *= i;
-                i++;
-            }
-
-            let sum = 0, j = 1;
-            do {
-                sum += j;
-                j++;
-            } while (j <= n);
-
-            let average = 0;
-            for (let k = 1; k <= n; k++) {
-                average += k;
-            }
-            average /= n;
-
-            document.getElementById("factorialResult").innerText = factorial;
-            document.getElementById("sumResult").innerText = sum;
-            document.getElementById("averageResult").innerText = average.toFixed(2);
+        if (isNaN(n) || n < 0) {
+            alert("Please enter a positive integer.");
+            return;
         }
-    </script>
+
+        let factorial = 1;
+        for (let i = 1; i <= n; i++) factorial *= i;
+
+        let sum = 0;
+        for (let i = 1; i <= n; i++) sum += i;
+
+        const average = sum / n;
+
+        document.getElementById("factorialResult").innerText = factorial;
+        document.getElementById("sumResult").innerText = sum;
+        document.getElementById("averageResult").innerText = average.toFixed(2);
+    }
+</script>
+
+<footer class="w3-container w3-theme-dark">
+    <p>Powered by W3.CSS</p>
+</footer>
 
 </body>
 </html>
