@@ -29,9 +29,9 @@
 <script>
     function calculateTax() {
         const income = parseFloat(document.getElementById("incomeInput").value);
-        
+
         // Ensure a valid income is entered
-        if (isNaN(income) || income < 0) {
+        if (isNaN(income) || income <= 0) {
             alert("Please enter a valid income amount.");
             return;
         }
@@ -59,7 +59,7 @@
         // Update the tax result display
         document.getElementById("taxResult").innerText = formattedTax;
 
-        // Clear the input field to allow multiple calculations without reloading
+        // Clear the input field for new input after calculation
         document.getElementById("incomeInput").value = '';
     }
 </script>
