@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Factorial, Sum, and Average Calculator with W3.CSS</title>
+    <title>Calculator Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .flex-item {
+            flex: 1 1 calc(50% - 20px);
+            min-width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .flex-item input, .flex-item button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .flex-item button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        .flex-item button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
 
 <header class="w3-container w3-theme w3-padding">
-    <h1 class="w3-center">Factorial, Sum, and Average Calculator</h1>
+    <h1 class="w3-center">Calculator Hub</h1>
 </header>
 
 <div class="w3-container w3-padding">
-    <label for="numberInput">Enter an integer (n):</label>
-    <input class="w3-input w3-border" type="number" id="numberInput" required>
-    <button class="w3-button w3-theme w3-margin-top" onclick="calculate()">Calculate</button>
-</div>
+    <div class="flex-container">
 
-<div id="results" class="w3-container w3-padding">
-    <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
-    <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
-    <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
+        <!-- Factorial, Sum, and Average Calculator -->
+        <div class="flex-item">
+            <h2>Factorial, Sum, and Average Calculator</h2>
+            <label for="numberInput">Enter an integer (n):</label>
+            <input class="w3-input w3-border" type="number" id="numberInput" required>
+            <button class="w3-button w3-theme w3-margin-top" onclick="calculate()">Calculate</button>
+            <div id="results" class="w3-container w3-padding">
+                <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
+                <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
+                <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
+            </div>
+        </div>
+
+        <!-- Income Tax Calculator -->
+        <div class="flex-item">
+            <h2>Income Tax Calculator</h2>
+            <label for="income">Enter Taxable Income:</label>
+            <input type="number" id="income" placeholder="Enter your income here">
+            <button onclick="calculateTax()">Compute Tax</button>
+            <div class="result" id="result">Your income tax will be displayed here.</div>
+        </div>
+
+    </div>
 </div>
 
 <script>
+    // Factorial, Sum, and Average Calculator
     function calculate() {
         const n = parseInt(document.getElementById("numberInput").value);
 
@@ -46,6 +101,29 @@
         document.getElementById("factorialResult").innerText = factorial;
         document.getElementById("sumResult").innerText = sum;
         document.getElementById("averageResult").innerText = average.toFixed(2);
+    }
+
+    // Income Tax Calculator
+    function calculateTax() {
+        const income = parseFloat(document.getElementById("income").value);
+        let tax = 0;
+
+        if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 400000) {
+            tax = (income - 250000) * 0.20;
+        } else if (income <= 800000) {
+            tax = 30000 + (income - 400000) * 0.25;
+        } else if (income <= 2000000) {
+            tax = 130000 + (income - 800000) * 0.30;
+        } else if (income <= 8000000) {
+            tax = 490000 + (income - 2000000) * 0.32;
+        } else {
+            tax = 2410000 + (income - 8000000) * 0.35;
+        }
+
+        document.getElementById("result").textContent = 
+            `Your income tax is: ₱${tax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }
 </script>
 
