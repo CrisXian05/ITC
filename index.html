@@ -1,79 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CS 1130 - Introduction to Computing</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+    <title>Simple Payroll</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>CS 1130 - Introduction to Computing</h1>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Menu Icon -->
+    <h1>Simple Payroll System</h1>
 </header>
-
-<!-- Sidebar Navigation -->
-<aside class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleMenu()">&#10005;</div> <!-- Close Icon -->
-    <nav>
-        <ul>
-            <li><a href="NthFactorial.html">Nth Factorial</a></li>
-            <li><a href="IncomeTaxCalculator.html">Income Tax Calculator</a></li>
-            <li><a href="ComputationConversion.html">Computation Conversion</a></li> <!-- Existing Link -->
-            <li><a href="SimplePayroll.html">Simple Payroll</a></li> <!-- Added the new link -->
-        </ul>
-    </nav>
-</aside>
 
 <main>
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                Nth Factorial Calculator
-            </div>
-            <div class="card-content">
-                <p>Calculate factorials, sums, and averages for any integer input.</p>
-            </div>
-            <div class="card-footer">
-                <a href="NthFactorial.html" class="btn">Go to Calculator</a>
-            </div>
+        <div class="form-section">
+            <h2>Add Employee</h2>
+            <form id="payrollForm">
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" required><br>
+
+                <label for="daysWorked">Days Worked:</label>
+                <input type="number" id="daysWorked" required><br>
+
+                <label for="dailyRate">Daily Rate:</label>
+                <input type="number" id="dailyRate" required><br>
+
+                <label for="deductionAmount">Deduction Amount:</label>
+                <input type="number" id="deductionAmount" required><br>
+
+                <button type="submit">Add Employee</button>
+            </form>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                Income Tax Calculator
-            </div>
-            <div class="card-content">
-                <p>Compute your income tax based on your taxable income using current tax brackets.</p>
-            </div>
-            <div class="card-footer">
-                <a href="IncomeTaxCalculator.html" class="btn">Go to Calculator</a>
-            </div>
+        <div class="form-section">
+            <h2>Delete Employee</h2>
+            <label for="lineNumber">Enter Line Number to Delete:</label>
+            <input type="number" id="lineNumber" min="1">
+            <button onclick="deleteEmployee()">Delete Employee</button>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                Computation Conversion
-            </div>
-            <div class="card-content">
-                <p>Convert between Fahrenheit & Celsius, and Meters & Feet with ease.</p>
-            </div>
-            <div class="card-footer">
-                <a href="ComputationConversion.html" class="btn">Go to Converter</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                Simple Payroll
-            </div>
-            <div class="card-content">
-                <p>Manage payrolls, add employees, and delete them from the list.</p>
-            </div>
-            <div class="card-footer">
-                <a href="SimplePayroll.html" class="btn">Go to Payroll</a>
-            </div>
+        <div class="payroll-table">
+            <h2>Payroll List</h2>
+            <table id="payrollTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Employee Name</th>
+                        <th>Days Worked</th>
+                        <th>Daily Rate</th>
+                        <th>Gross Pay</th>
+                        <th>Deduction Amount</th>
+                        <th>Net Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Payroll entries will appear here -->
+                </tbody>
+            </table>
         </div>
     </div>
 </main>
@@ -83,10 +67,64 @@
 </footer>
 
 <script>
-    // Menu toggle for mobile responsiveness
-    function toggleMenu() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("show");
+    let payrollList = [];
+
+    // Function to add an employee to the payroll
+    document.getElementById('payrollForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const employeeName = document.getElementById('employeeName').value;
+        const daysWorked = parseFloat(document.getElementById('daysWorked').value);
+        const dailyRate = parseFloat(document.getElementById('dailyRate').value);
+        const deductionAmount = parseFloat(document.getElementById('deductionAmount').value);
+
+        const grossPay = daysWorked * dailyRate;
+        const netPay = grossPay - deductionAmount;
+
+        // Create a new employee object
+        const newEmployee = {
+            employeeName,
+            daysWorked,
+            dailyRate,
+            grossPay,
+            deductionAmount,
+            netPay
+        };
+
+        // Add the employee to the payroll list
+        payrollList.push(newEmployee);
+        updateTable();
+    });
+
+    // Function to update the payroll table
+    function updateTable() {
+        const tableBody = document.getElementById('payrollTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = '';
+
+        payrollList.forEach((employee, index) => {
+            const row = tableBody.insertRow();
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${employee.employeeName}</td>
+                <td>${employee.daysWorked}</td>
+                <td>${employee.dailyRate}</td>
+                <td>${employee.grossPay}</td>
+                <td>${employee.deductionAmount}</td>
+                <td>${employee.netPay}</td>
+            `;
+        });
+    }
+
+    // Function to delete an employee from the payroll
+    function deleteEmployee() {
+        const lineNumber = parseInt(document.getElementById('lineNumber').value) - 1;
+
+        if (lineNumber >= 0 && lineNumber < payrollList.length) {
+            payrollList.splice(lineNumber, 1);
+            updateTable();
+        } else {
+            alert('Invalid line number!');
+        }
     }
 </script>
 
