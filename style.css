@@ -1,3 +1,4 @@
+/* Basic Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,51 +16,94 @@ header {
     padding: 1rem 0;
 }
 
-header h1 {
-    margin: 0;
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation Bar Styling */
-nav {
-    background: #333;
-    color: white;
-}
-
-nav ul {
+.sidebar nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
     margin: 0;
 }
 
-nav ul li {
-    margin: 0 1rem;
+.sidebar nav ul li {
+    margin: 20px 0;
 }
 
-nav ul li a {
-    text-decoration: none;
+.sidebar nav ul li a {
+    display: block;
+    padding: 15px;
     color: white;
+    text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #0073e6;
+.sidebar nav ul li a:hover {
+    background-color: #0073e6;
+    color: #fff;
 }
 
 /* Main Section Styling */
 main {
+    margin-left: 220px; /* Adjust for the sidebar */
     padding: 2rem;
     text-align: center;
 }
 
-#content {
-    background: white;
-    border: 1px solid #ccc;
-    padding: 1rem;
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #0073e6;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.card-content {
+    padding: 20px;
+    font-size: 1rem;
+}
+
+.card-footer {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-footer .btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-footer .btn:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
 }
 
 /* Footer Styling */
