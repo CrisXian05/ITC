@@ -1,39 +1,96 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const content = document.getElementById("content");
-
-    // Menu Item Handlers
-    document.getElementById("nth-integer").addEventListener("click", () => {
-        const n = prompt("Enter the position of the integer (n):");
-        if (n && !isNaN(n)) {
-            content.innerHTML = `<p>The ${n}th integer is: ${parseInt(n)}</p>`;
-        } else {
-            content.innerHTML = "<p>Please enter a valid number!</p>";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nth Factorial Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
         }
-    });
-
-    document.getElementById("prime-checker").addEventListener("click", () => {
-        const num = prompt("Enter a number to check if it's prime:");
-        if (num && !isNaN(num)) {
-            const isPrime = (n) => {
-                if (n < 2) return false;
-                for (let i = 2; i <= Math.sqrt(n); i++) {
-                    if (n % i === 0) return false;
-                }
-                return true;
-            };
-            content.innerHTML = `<p>${num} is ${isPrime(num) ? "a prime number" : "not a prime number"}.</p>`;
-        } else {
-            content.innerHTML = "<p>Please enter a valid number!</p>";
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-    });
-
-    document.getElementById("factorial-calc").addEventListener("click", () => {
-        const num = prompt("Enter a number to calculate its factorial:");
-        if (num && !isNaN(num)) {
-            const factorial = (n) => (n <= 1 ? 1 : n * factorial(n - 1));
-            content.innerHTML = `<p>The factorial of ${num} is: ${factorial(num)}</p>`;
-        } else {
-            content.innerHTML = "<p>Please enter a valid number!</p>";
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-    });
-});
+        .btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Nth Factorial Calculator</h1>
+</header>
+
+<div class="container">
+    <label for="numberInput">Enter an integer (n):</label>
+    <input class="w3-input w3-border" type="number" id="numberInput" placeholder="Enter a number" required>
+    <button class="btn w3-margin-top" onclick="calculate()">Calculate</button>
+
+    <div class="w3-margin-top">
+        <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
+        <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
+        <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Calculator Hub</p>
+</footer>
+
+<script>
+    function calculate() {
+        const n = parseInt(document.getElementById("numberInput").value);
+
+        if (isNaN(n) || n < 0) {
+            alert("Please enter a positive integer.");
+            return;
+        }
+
+        let factorial = 1;
+        for (let i = 1; i <= n; i++) factorial *= i;
+
+        let sum = 0;
+        for (let i = 1; i <= n; i++) sum += i;
+
+        const average = sum / n;
+
+        document.getElementById("factorialResult").innerText = factorial;
+        document.getElementById("sumResult").innerText = sum;
+        document.getElementById("averageResult").innerText = average.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
