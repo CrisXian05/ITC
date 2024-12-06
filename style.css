@@ -14,18 +14,36 @@ header {
     color: white;
     text-align: center;
     padding: 1rem 0;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.menu-icon {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
 }
 
 /* Sidebar Styling */
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 200px;
+    left: -250px; /* Hide sidebar by default */
+    width: 250px;
     height: 100%;
     background-color: #333;
+    transition: 0.3s;
     padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.show {
+    left: 0; /* Show sidebar */
 }
 
 .sidebar nav ul {
@@ -55,7 +73,7 @@ header {
 
 /* Main Section Styling */
 main {
-    margin-left: 220px; /* Adjust for the sidebar */
+    margin-left: 270px; /* Adjust for the sidebar */
     padding: 2rem;
     text-align: center;
 }
