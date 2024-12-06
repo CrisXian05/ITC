@@ -4,48 +4,7 @@
     <title>Income Tax Calculator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        header {
-            background-color: #dc3545;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .btn {
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #c82333;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -71,6 +30,7 @@
     function calculateTax() {
         const income = parseFloat(document.getElementById("incomeInput").value);
         
+        // Ensure a valid income is entered
         if (isNaN(income) || income < 0) {
             alert("Please enter a valid income amount.");
             return;
@@ -78,22 +38,26 @@
 
         let tax = 0;
 
-        // Applying the tax brackets
+        // Apply the tax calculation logic based on the income ranges
         if (income <= 250000) {
-            tax = 0; // 0% tax rate
+            tax = 0; // 0% tax rate for income <= P250,000
         } else if (income <= 400000) {
-            tax = (income - 250000) * 0.20; // 20% of the excess over P250,000
+            tax = (income - 250000) * 0.20; // 20% for excess over P250,000
         } else if (income <= 800000) {
-            tax = 30000 + (income - 400000) * 0.25; // P30,000 + 25% of the excess over P400,000
+            tax = 30000 + (income - 400000) * 0.25; // P30,000 + 25% for excess over P400,000
         } else if (income <= 2000000) {
-            tax = 130000 + (income - 800000) * 0.30; // P130,000 + 30% of the excess over P800,000
+            tax = 130000 + (income - 800000) * 0.30; // P130,000 + 30% for excess over P800,000
         } else if (income <= 8000000) {
-            tax = 490000 + (income - 2000000) * 0.32; // P490,000 + 32% of the excess over P2,000,000
+            tax = 490000 + (income - 2000000) * 0.32; // P490,000 + 32% for excess over P2,000,000
         } else {
-            tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% of the excess over P8,000,000
+            tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% for excess over P8,000,000
         }
 
+        // Update the tax result display
         document.getElementById("taxResult").innerText = tax.toFixed(2);
+
+        // Clear the input field to allow multiple calculations without reloading
+        document.getElementById("incomeInput").value = '';
     }
 </script>
 
