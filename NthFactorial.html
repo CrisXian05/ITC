@@ -1,51 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Nth Factorial Calculator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .btn {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #218838;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+    <title>Nth Factorial Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -53,17 +12,17 @@
     <h1>Nth Factorial Calculator</h1>
 </header>
 
-<div class="container">
+<main>
     <label for="numberInput">Enter an integer (n):</label>
-    <input class="w3-input w3-border" type="number" id="numberInput" placeholder="Enter a number" required>
-    <button class="btn w3-margin-top" onclick="calculate()">Calculate</button>
+    <input type="number" id="numberInput" placeholder="Enter a number" required>
+    <button onclick="calculate()">Calculate</button>
 
-    <div class="w3-margin-top">
+    <div>
         <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
         <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
         <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
     </div>
-</div>
+</main>
 
 <footer>
     <p>© 2024 Calculator Hub</p>
@@ -72,7 +31,6 @@
 <script>
     function calculate() {
         const n = parseInt(document.getElementById("numberInput").value);
-
         if (isNaN(n) || n < 0) {
             alert("Please enter a positive integer.");
             return;
