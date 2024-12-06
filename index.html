@@ -5,130 +5,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .flex-container {
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
-        }
-        .flex-item {
-            flex: 1 1 calc(50% - 20px);
-            min-width: 300px;
-            background: #fff;
+            align-items: center;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            gap: 20px;
         }
-        .flex-item input, .flex-item button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        .card {
+            flex: 1 1 calc(40% - 20px);
+            max-width: 300px;
+            min-width: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
         }
-        .flex-item button {
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
             background-color: #007BFF;
-            color: #fff;
-            cursor: pointer;
+            color: white;
+            padding: 20px;
+            font-size: 1.5rem;
         }
-        .flex-item button:hover {
+        .card-content {
+            padding: 20px;
+        }
+        .card-content p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+        .card-footer {
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
             background-color: #0056b3;
         }
-        .result {
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
             margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #007BFF;
         }
     </style>
 </head>
 <body>
 
-<header class="w3-container w3-theme w3-padding">
-    <h1 class="w3-center">Calculator Hub</h1>
+<header>
+    <h1>Calculator Hub</h1>
 </header>
 
-<div class="w3-container w3-padding">
-    <div class="flex-container">
-
-        <!-- Factorial, Sum, and Average Calculator -->
-        <div class="flex-item">
-            <h2>Factorial, Sum, and Average Calculator</h2>
-            <label for="numberInput">Enter an integer (n):</label>
-            <input class="w3-input w3-border" type="number" id="numberInput" required>
-            <button class="w3-button w3-theme w3-margin-top" onclick="calculate()">Calculate</button>
-            <div id="results" class="w3-container w3-padding">
-                <p><strong>Factorial:</strong> <span id="factorialResult">N/A</span></p>
-                <p><strong>Sum:</strong> <span id="sumResult">N/A</span></p>
-                <p><strong>Average:</strong> <span id="averageResult">N/A</span></p>
-            </div>
+<div class="container">
+    <!-- Card for Nth Factorial Calculator -->
+    <div class="card">
+        <div class="card-header">
+            Nth Factorial Calculator
         </div>
-
-        <!-- Income Tax Calculator -->
-        <div class="flex-item">
-            <h2>Income Tax Calculator</h2>
-            <label for="income">Enter Taxable Income:</label>
-            <input type="number" id="income" placeholder="Enter your income here">
-            <button onclick="calculateTax()">Compute Tax</button>
-            <div class="result" id="result">Your income tax will be displayed here.</div>
+        <div class="card-content">
+            <p>Calculate factorials, sums, and averages for any integer input.</p>
         </div>
+        <div class="card-footer">
+            <a href="factorial.html" class="btn">Go to Calculator</a>
+        </div>
+    </div>
 
+    <!-- Card for Income Tax Calculator -->
+    <div class="card">
+        <div class="card-header">
+            Income Tax Calculator
+        </div>
+        <div class="card-content">
+            <p>Compute your income tax based on your taxable income using current tax brackets.</p>
+        </div>
+        <div class="card-footer">
+            <a href="tax.html" class="btn">Go to Calculator</a>
+        </div>
     </div>
 </div>
 
-<script>
-    // Factorial, Sum, and Average Calculator
-    function calculate() {
-        const n = parseInt(document.getElementById("numberInput").value);
-
-        if (isNaN(n) || n < 0) {
-            alert("Please enter a positive integer.");
-            return;
-        }
-
-        let factorial = 1;
-        for (let i = 1; i <= n; i++) factorial *= i;
-
-        let sum = 0;
-        for (let i = 1; i <= n; i++) sum += i;
-
-        const average = sum / n;
-
-        document.getElementById("factorialResult").innerText = factorial;
-        document.getElementById("sumResult").innerText = sum;
-        document.getElementById("averageResult").innerText = average.toFixed(2);
-    }
-
-    // Income Tax Calculator
-    function calculateTax() {
-        const income = parseFloat(document.getElementById("income").value);
-        let tax = 0;
-
-        if (income <= 250000) {
-            tax = 0;
-        } else if (income <= 400000) {
-            tax = (income - 250000) * 0.20;
-        } else if (income <= 800000) {
-            tax = 30000 + (income - 400000) * 0.25;
-        } else if (income <= 2000000) {
-            tax = 130000 + (income - 800000) * 0.30;
-        } else if (income <= 8000000) {
-            tax = 490000 + (income - 2000000) * 0.32;
-        } else {
-            tax = 2410000 + (income - 8000000) * 0.35;
-        }
-
-        document.getElementById("result").textContent = 
-            `Your income tax is: ₱${tax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    }
-</script>
-
-<footer class="w3-container w3-theme-dark">
-    <p>Powered by W3.CSS</p>
+<footer>
+    <p>© 2024 Calculator Hub | Designed with ❤️</p>
 </footer>
 
 </body>
