@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 800px;
+      margin: auto;
+    }
+    .box {
+      flex: 1 1 calc(50% - 20px);
+      min-width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h2>Income Tax Calculator</h2>
+      <label for="income">Enter Taxable Income:</label>
+      <input type="number" id="income" placeholder="Enter your income here" />
+      <button onclick="calculateTax()">Compute Tax</button>
+      <div class="result" id="result">Your income tax will be displayed here.</div>
+    </div>
+  </div>
+
+  <script>
+    function calculateTax() {
+      const income = parseFloat(document.getElementById("income").value);
+      let tax = 0;
+
+      if (income <= 250000) {
+        tax = 0;
+      } else if (income <= 400000) {
+        tax = (income - 250000) * 0.20;
+      } else if (income <= 800000) {
+        tax = 30000 + (income - 400000) * 0.25;
+      } else if (income <= 2000000) {
+        tax = 130000 + (income - 800000) * 0.30;
+      } else if (income <= 8000000) {
+        tax = 490000 + (income - 2000000) * 0.32;
+      } else {
+        tax = 2410000 + (income - 8000000) * 0.35;
+      }
+
+      document.getElementById("result").textContent = 
+        `Your income tax is: ₱${tax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+  </script>
+</body>
+</html>
