@@ -83,15 +83,21 @@ header {
 main {
     padding: 2rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping of content */
+    gap: 20px; /* Add gap between cards */
 }
 
 .container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    width: 100%;
 }
 
+/* Card Styling */
 .card {
     background: white;
     border: 1px solid #ddd;
@@ -100,6 +106,11 @@ main {
     margin: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
+    flex-grow: 1; /* Allow the card to grow */
+    flex-basis: 250px; /* Set initial size of cards */
+    display: flex;
+    flex-direction: column;
+    min-width: 250px; /* Ensure cards don’t shrink too small */
 }
 
 .card-header {
@@ -114,6 +125,7 @@ main {
 .card-content {
     padding: 15px;
     text-align: center;
+    flex-grow: 1; /* Allow content area to grow and take up space */
 }
 
 .card-footer {
@@ -144,4 +156,15 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack cards vertically on small screens */
+    }
+
+    .card {
+        width: 100%; /* Make cards take full width on small screens */
+    }
 }
