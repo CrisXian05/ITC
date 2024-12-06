@@ -1,4 +1,3 @@
-/* Basic Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,111 +16,123 @@ header {
     position: relative;
 }
 
-header h1 {
-    margin: 0;
-}
-
+/* Menu Icon Styling */
 .menu-icon {
     font-size: 30px;
     color: white;
-    position: absolute;
-    top: 20px;
-    left: 20px;
     cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 20px;
 }
 
 /* Sidebar Styling */
 .sidebar {
+    height: 100%;
+    width: 0;
     position: fixed;
     top: 0;
-    left: -250px; /* Hide sidebar by default */
-    width: 250px;
-    height: 100%;
+    left: 0;
     background-color: #333;
-    transition: 0.3s;
-    padding-top: 20px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 100;
 }
 
-.sidebar.show {
-    left: 0; /* Show sidebar */
-}
-
+/* Sidebar links */
 .sidebar nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 .sidebar nav ul li {
-    margin: 20px 0;
+    padding: 8px 16px;
+    text-align: left;
 }
 
 .sidebar nav ul li a {
-    display: block;
-    padding: 15px;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
 }
 
 .sidebar nav ul li a:hover {
     background-color: #0073e6;
-    color: #fff;
+}
+
+/* Close Button Styling */
+.close-btn {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+}
+
+/* Show the Sidebar */
+.sidebar.show {
+    width: 250px;
 }
 
 /* Main Section Styling */
 main {
-    margin-left: 270px; /* Adjust for the sidebar */
     padding: 2rem;
     text-align: center;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
 }
 
 .card-header {
-    background-color: #0073e6;
+    background: #0073e6;
     color: white;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
 }
 
 .card-content {
-    padding: 20px;
-    font-size: 1rem;
+    padding: 15px;
+    text-align: center;
 }
 
 .card-footer {
-    padding: 15px;
+    background: #f4f4f9;
+    padding: 10px;
     text-align: center;
 }
 
 .card-footer .btn {
     background-color: #0073e6;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .card-footer .btn:hover {
     background-color: #005bb5;
-    transform: scale(1.05);
 }
 
 /* Footer Styling */
