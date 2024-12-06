@@ -4,8 +4,6 @@
     <title>Calculator Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,20 +15,76 @@
         header {
             background-color: #007BFF;
             color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         header h1 {
-            font-size: 2.5rem;
             margin: 0;
+            font-size: 1.5rem;
         }
-        .container {
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #dcdcdc;
+        }
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        #menu {
+            display: none;
+            flex-direction: column;
+            background-color: #007BFF;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #menu a {
+            padding: 10px 15px;
+            border-bottom: 1px solid white;
+        }
+        #menu a:last-child {
+            border-bottom: none;
+        }
+        #menu.show {
+            display: flex;
+        }
+        main {
+            padding: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
             gap: 20px;
         }
         .card {
@@ -56,11 +110,6 @@
         .card-content {
             padding: 20px;
         }
-        .card-content p {
-            font-size: 1rem;
-            color: #666;
-            margin: 0;
-        }
         .card-footer {
             padding: 20px;
         }
@@ -80,11 +129,20 @@
             background-color: #0056b3;
         }
         footer {
+            position: sticky;
+            bottom: 0;
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px 0;
-            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .burger {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -92,10 +150,24 @@
 
 <header>
     <h1>Calculator Hub</h1>
+    <nav>
+        <ul id="nav-links">
+            <li><a href="factorial.html">Nth Factorial</a></li>
+            <li><a href="tax.html">Income Tax</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="menu">
+            <a href="factorial.html">Nth Factorial</a>
+            <a href="tax.html">Income Tax</a>
+        </div>
+    </nav>
 </header>
 
-<div class="container">
-    <!-- Card for Nth Factorial Calculator -->
+<main>
     <div class="card">
         <div class="card-header">
             Nth Factorial Calculator
@@ -108,7 +180,6 @@
         </div>
     </div>
 
-    <!-- Card for Income Tax Calculator -->
     <div class="card">
         <div class="card-header">
             Income Tax Calculator
@@ -120,11 +191,18 @@
             <a href="tax.html" class="btn">Go to Calculator</a>
         </div>
     </div>
-</div>
+</main>
 
 <footer>
-    <p>© 2024 Calculator Hub | Designed with ❤️</p>
+    <p>© 2024 Calculator Hub</p>
 </footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("show");
+    }
+</script>
 
 </body>
 </html>
