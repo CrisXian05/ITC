@@ -1,51 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Income Tax Calculator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        header {
-            background-color: #dc3545;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .btn {
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #c82333;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -53,15 +12,15 @@
     <h1>Income Tax Calculator</h1>
 </header>
 
-<div class="container">
+<main>
     <label for="incomeInput">Enter your taxable income:</label>
-    <input class="w3-input w3-border" type="number" id="incomeInput" placeholder="Enter income" required>
-    <button class="btn w3-margin-top" onclick="calculateTax()">Calculate Tax</button>
+    <input type="number" id="incomeInput" placeholder="Enter income" required>
+    <button onclick="calculateTax()">Calculate Tax</button>
 
-    <div class="w3-margin-top">
+    <div>
         <p><strong>Income Tax:</strong> <span id="taxResult">N/A</span></p>
     </div>
-</div>
+</main>
 
 <footer>
     <p>© 2024 Calculator Hub</p>
@@ -70,7 +29,6 @@
 <script>
     function calculateTax() {
         const income = parseFloat(document.getElementById("incomeInput").value);
-
         if (isNaN(income) || income < 0) {
             alert("Please enter a valid income amount.");
             return;
@@ -79,15 +37,11 @@
         let tax = 0;
 
         if (income > 8000000) {
-            tax = 2410000 + 0.35 * (income - 8000000);
-        } else if (income > 2000000) {
-            tax = 490000 + 0.32 * (income - 2000000);
-        } else if (income > 800000) {
-            tax = 130000 + 0.30 * (income - 800000);
-        } else if (income > 400000) {
-            tax = 30000 + 0.25 * (income - 400000);
-        } else if (income > 250000) {
-            tax = 0.20 * (income - 250000);
+            tax = income * 0.30;
+        } else if (income > 4000000) {
+            tax = income * 0.20;
+        } else {
+            tax = income * 0.10;
         }
 
         document.getElementById("taxResult").innerText = tax.toFixed(2);
