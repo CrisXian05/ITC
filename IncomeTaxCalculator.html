@@ -23,7 +23,7 @@
 </div>
 
 <footer>
-    <p>© 2024 Calculator Hub</p>
+    <p>Income Tax Calculator</p>
 </footer>
 
 <script>
@@ -53,8 +53,11 @@
             tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% for excess over P8,000,000
         }
 
+        // Format the tax result with commas for thousands, millions, etc.
+        const formattedTax = tax.toLocaleString();
+
         // Update the tax result display
-        document.getElementById("taxResult").innerText = tax.toFixed(2);
+        document.getElementById("taxResult").innerText = formattedTax;
 
         // Clear the input field to allow multiple calculations without reloading
         document.getElementById("incomeInput").value = '';
