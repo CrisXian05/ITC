@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CS 1130 - Introduction to Computing</title>
+    <title>Calculator Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
 </head>
 <body>
 
-<subheader>
-    <h1>By: Christian Jan Lopez</h1>
-</subheader>
+<header>
+    <h1>Calculator Hub</h1>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Menu Icon -->
+</header>
 
 <!-- Sidebar Navigation -->
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
     <nav>
         <ul>
-            <li><a href="factorial.html">Nth Factorial</a></li>
-            <li><a href="tax.html">Income Tax Calculator</a></li>
+            <li><a href="NthFactorial.html">Nth Factorial</a></li>
+            <li><a href="IncomeTaxCalculator.html">Income Tax Calculator</a></li>
         </ul>
     </nav>
 </aside>
@@ -32,7 +33,7 @@
                 <p>Calculate factorials, sums, and averages for any integer input.</p>
             </div>
             <div class="card-footer">
-                <a href="factorial.html" class="btn">Go to Calculator</a>
+                <a href="NthFactorial.html" class="btn">Go to Calculator</a>
             </div>
         </div>
 
@@ -44,21 +45,21 @@
                 <p>Compute your income tax based on your taxable income using current tax brackets.</p>
             </div>
             <div class="card-footer">
-                <a href="tax.html" class="btn">Go to Calculator</a>
+                <a href="IncomeTaxCalculator.html" class="btn">Go to Calculator</a>
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <p>© 2024 CS 1130</p>
+    <p>© 2024 Calculator Hub</p>
 </footer>
 
 <script>
-    // Menu toggle for mobile responsiveness (optional)
+    // Menu toggle for mobile responsiveness
     function toggleMenu() {
-        const menu = document.getElementById("menu");
-        menu.classList.toggle("show");
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("show");
     }
 </script>
 
