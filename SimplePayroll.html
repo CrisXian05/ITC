@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Payroll</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+</head>
+<body>
+
+<header>
+    <h1>Simple Payroll Management</h1>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Menu Icon -->
+</header>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">&#10005;</div> <!-- Close Icon -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Back to Main</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<main>
+    <div class="container">
+        <h2>Add Employee</h2>
+        <form id="payrollForm">
+            <label for="empName">Employee Name:</label>
+            <input type="text" id="empName" required>
+            <label for="daysWorked">Days Worked:</label>
+            <input type="number" id="daysWorked" required>
+            <label for="dailyRate">Daily Rate:</label>
+            <input type="number" id="dailyRate" required>
+            <label for="deductionAmount">Deduction Amount:</label>
+            <input type="number" id="deductionAmount" required>
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <h2>Payroll List</h2>
+        <table id="payrollTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Employee Name</th>
+                    <th>Days Worked</th>
+                    <th>Daily Rate</th>
+                    <th>Gross Pay</th>
+                    <th>Deduction Amount</th>
+                    <th>Net Pay</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Employee rows will be added here -->
+            </tbody>
+        </table>
+
+        <h3>Delete Employee</h3>
+        <label for="lineNumber">Line Number:</label>
+        <input type="number" id="lineNumber" min="1">
+        <button onclick="deleteEmployee()">Delete</button>
+    </div>
+</main>
+
+<footer>
+    <p>by Christian Jan Lopez</p>
+</footer>
+
+<script>
+    let payrollList = [];
+    const payrollForm = document.getElementById('payrollForm');
+    const payrollTable = document.getElementById('payrollTable').getElementsByTagName('tbody')[0];
+
+    payrollForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const empName = document.getElementById('empName').value;
+        const daysWorked = document.getElementById('daysWorked').value;
+        const dailyRate = document.getElementById('dailyRate').value;
+        const deductionAmount = document.getElementById('deductionAmount').value;
+
+        const grossPay = daysWorked * dailyRate;
+        const netPay = grossPay - deductionAmount;
+
+        const employee = {
+            empName,
+            daysWorked,
+            dailyRate,
+            grossPay,
+            deductionAmount,
+            netPay
+        };
+
+        payrollList.push(employee);
+        updatePayrollTable();
+    });
+
+    function updatePayrollTable() {
+        payrollTable.innerHTML = '';
+        payrollList.forEach((employee, index) => {
+            const row = payrollTable.insertRow();
+            row.insertCell(0).innerText = index + 1;
+            row.insertCell(1).innerText = employee.empName;
+            row.insertCell(2).innerText = employee.daysWorked;
+            row.insertCell(3).innerText = employee.dailyRate;
+            row.insertCell(4).innerText = employee.grossPay;
+            row.insertCell(5).innerText = employee.deductionAmount;
+            row.insertCell(6).innerText = employee.netPay;
+            const actionCell = row.insertCell(7);
+            actionCell.innerHTML = `<button onclick="deleteEmployee(${index})">Delete</button>`;
+        });
+    }
+
+    function deleteEmployee(index) {
+        payrollList.splice(index, 1);
+        updatePayrollTable();
+    }
+
+    // Menu toggle for mobile responsiveness
+    function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>
