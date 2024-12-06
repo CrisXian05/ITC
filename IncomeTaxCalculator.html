@@ -29,6 +29,7 @@
 <script>
     function calculateTax() {
         const income = parseFloat(document.getElementById("incomeInput").value);
+        
         if (isNaN(income) || income < 0) {
             alert("Please enter a valid income amount.");
             return;
@@ -36,12 +37,19 @@
 
         let tax = 0;
 
-        if (income > 8000000) {
-            tax = income * 0.30;
-        } else if (income > 4000000) {
-            tax = income * 0.20;
+        // Applying the tax brackets
+        if (income <= 250000) {
+            tax = 0; // 0% tax rate
+        } else if (income <= 400000) {
+            tax = (income - 250000) * 0.20; // 20% of the excess over P250,000
+        } else if (income <= 800000) {
+            tax = 30000 + (income - 400000) * 0.25; // P30,000 + 25% of the excess over P400,000
+        } else if (income <= 2000000) {
+            tax = 130000 + (income - 800000) * 0.30; // P130,000 + 30% of the excess over P800,000
+        } else if (income <= 8000000) {
+            tax = 490000 + (income - 2000000) * 0.32; // P490,000 + 32% of the excess over P2,000,000
         } else {
-            tax = income * 0.10;
+            tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% of the excess over P8,000,000
         }
 
         document.getElementById("taxResult").innerText = tax.toFixed(2);
