@@ -1,9 +1,8 @@
-/* General styling */
+
 html, body {
     font-family: "Roboto", sans-serif;
 }
 
-/* W3CSS theme customization */
 .w3-container {
     padding: 16px;
 }
@@ -17,35 +16,35 @@ html, body {
     color: white !important;
 }
 
-/* Navbar with flexbox */
+
 .w3-bar {
-    display: flex; /* Apply flexbox to the navbar */
-    justify-content: space-between; /* Space out elements */
-    align-items: center; /* Vertically align items */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
 }
 
 .w3-bar-item {
-    flex-grow: 1; /* Allow menu items to grow and occupy space */
-    text-align: center; /* Align text to the center */
+    flex-grow: 1; 
+    text-align: center; 
 }
 
 .w3-hide-large {
-    display: block; /* Ensure the menu icon shows on smaller screens */
+    display: block; 
 }
 
-/* Adjust sidebar and navbar layout */
+
 .w3-sidebar {
-    display: none; /* Hide by default */
+    display: none; 
     width: 250px;
     position: fixed;
     top: 43px;
     left: 0;
     bottom: 0;
     background-color: #f1f1f1;
-    z-index: 5; /* Ensure it appears above content */
-    flex-direction: column; /* Make sidebar a column flex container */
-    flex-wrap: nowrap; /* Prevent wrapping inside the sidebar */
+    z-index: 5; 
+    flex-direction: column; 
+    flex-wrap: nowrap; 
 }
 
 .w3-main {
@@ -57,7 +56,7 @@ html, body {
     margin-top: 16px;
 }
 
-/* Footer styles */
+
 #myFooter {
     position: fixed;
     bottom: 0;
@@ -70,12 +69,12 @@ html, body {
     padding: 16px;
 }
 
-/* Media Queries for Mobile Devices */
+
 @media (max-width: 768px) {
-    /* Make sidebar visible on mobile */
+
     .w3-sidebar {
         display: block;
-        width: 100%; /* Full-width on small screens */
+        width: 100%; 
     }
 
     .w3-main {
@@ -83,14 +82,12 @@ html, body {
         padding-top: 20px;
     }
 
-    /* Mobile navbar items should wrap */
     .w3-bar {
         flex-wrap: wrap;
     }
-
     .w3-bar-item {
-        flex-grow: 0; /* Prevent menu items from growing on small screens */
-        width: 100%; /* Take full width on smaller screens */
-        text-align: left; /* Align items to the left */
+        flex-grow: 0; 
+        width: 100%; 
+        text-align: left; 
     }
 }
