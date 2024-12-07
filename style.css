@@ -1,161 +1,103 @@
+
 /* General styling */
 html, body {
     font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
-/* Navbar Styling */
-.w3-top {
-    z-index: 100;
+/* W3CSS theme customization */
+.w3-container {
+    padding: 16px;
 }
 
 .w3-bar-item {
     font-size: 18px;
 }
 
-.w3-bar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .w3-theme-l1 {
-    background-color: #333 !important; /* Dark theme */
+    background-color: #1f1f1f !important;
     color: white !important;
 }
 
-.w3-bar .w3-bar-item:hover {
-    background-color: #444 !important; /* Hover effect */
-}
-
-/* Sidebar Customization */
+/* Adjust sidebar and navbar layout */
 .w3-sidebar {
-    background-color: #444; /* Darker sidebar for aesthetic */
+    display: none; /* Hide by default for mobile */
     width: 250px;
     position: fixed;
-    top: 0;
+    top: 43px;
     left: 0;
     bottom: 0;
-    z-index: 100;
-    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    background-color: #f1f1f1;
+    z-index: 5; /* Ensure it appears above content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    transition: transform 0.3s ease; /* Smooth opening/closing */
 }
 
-.w3-sidebar .w3-bar-item {
-    color: #ccc;
-    padding: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
+.w3-sidebar.active {
+    display: block; /* Show sidebar when active */
 }
 
-.w3-sidebar .w3-bar-item:hover {
-    background-color: #555;
-    color: white;
-}
-
-/* Sidebar on mobile screens */
-.w3-sidebar.w3-animate-left {
-    transform: translateX(-250px); /* Initially hidden */
-}
-
-.w3-sidebar.w3-bar-block {
-    transform: translateX(0); /* Slide-in effect */
-}
-
-/* Overlay Styles */
-.w3-overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 50;
-}
-
-/* Main Content Styling */
 .w3-main {
-    margin-left: 250px;
-    padding-top: 60px; /* Adjust for navbar */
-    transition: margin-left 0.3s ease-in-out;
+    margin-left: 250px; /* Default for larger screens */
+    padding-top: 20px;
 }
 
-.w3-row {
-    margin-top: 20px;
+.w3-margin-top {
+    margin-top: 16px;
 }
 
-.w3-twothird {
-    padding-right: 20px;
+/* Result section styles */
+#w3-main .w3-text-teal {
+    color: #009688;
 }
 
-.w3-third {
-    padding-left: 20px;
-}
-
-/* Footer Styling */
+/* Footer styles */
 #myFooter {
-    background-color: #222;
-    color: white;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 20px;
+    background-color: #222;
+    color: white;
 }
 
-#myFooter h4 {
-    text-align: center;
-    font-size: 16px;
-}
-
-#myFooter .w3-container {
-    text-align: center;
-    background-color: #333;
-    padding: 10px;
-}
-
-/* Close Menu Button Styling (in sidebar) */
-.w3-sidebar .w3-bar-item.w3-hover-black {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.w3-sidebar .w3-xlarge {
-    padding: 20px;
-}
-
-/* Responsive Design */
+/* Responsive design */
 @media screen and (max-width: 768px) {
+    /* Adjust main content */
     .w3-main {
-        margin-left: 0;
-        padding-top: 80px; /* Space for navbar on mobile */
+        margin-left: 0; /* Full width when sidebar is hidden */
     }
 
+    /* Show menu button in navbar */
+    .w3-bar .w3-button.w3-right {
+        display: block;
+    }
+
+    /* Sidebar for smaller screens */
     .w3-sidebar {
+        display: none; /* Initially hidden */
+        position: fixed;
+        width: 250px;
+        height: 100%; /* Cover full height */
+        z-index: 5;
+        overflow-y: auto;
+    }
+
+    .w3-sidebar.active {
+        display: block; /* Show sidebar on toggle */
+    }
+
+    /* Overlay effect for better visibility */
+    #myOverlay {
+        display: none;
+        position: fixed;
         width: 100%;
         height: 100%;
-        transform: translateX(-100%); /* Sidebar initially hidden */
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 4;
     }
 
-    .w3-bar-item {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    .w3-bar .w3-bar-item:hover {
-        background-color: #444;
-    }
-
-    .w3-bar-item.w3-button.w3-theme-l1 {
-        font-size: 22px; /* Bigger menu button text for mobile */
-    }
-
-    .w3-top {
-        position: fixed;
-        z-index: 100;
-        width: 100%;
-    }
-
-    /* Mobile close button styling */
-    .w3-sidebar .w3-xlarge {
-        font-size: 28px;
-        padding: 15px;
-        background-color: #333;
-        color: white;
+    #myOverlay.active {
+        display: block; /* Show overlay when sidebar is active */
     }
 }
