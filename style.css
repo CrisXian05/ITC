@@ -1,70 +1,35 @@
-/* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0073e6, #00b3b3); /* Background Gradient */
+    background-color: #0073e6;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Prevent scrolling */
 }
 
-h1, h2 {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Container Styling */
 .container {
     max-width: 700px;
-    width: 100%;
     margin: 50px auto;
-    padding: 30px;
+    padding: 20px;
     background-color: #fff;
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: transform 0.3s ease-in-out; /* Hover effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container:hover {
-    transform: translateY(-5px); /* Hover effect to lift the container */
-}
-
-/* Heading Styles */
 h1 {
     text-align: center;
-    font-size: 36px;
     color: #333;
-    margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 24px;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-/* Conversion Options List */
 .conversion-options {
     list-style-type: none;
     padding: 0;
     font-size: 18px;
     color: #555;
-    margin-bottom: 20px;
 }
 
 .conversion-options li {
     margin: 10px 0;
-    transition: color 0.3s ease;
 }
 
-.conversion-options li:hover {
-    color: #0073e6;
-}
-
-/* Form Styles */
 .conversion-form {
     display: flex;
     flex-direction: column;
@@ -79,90 +44,27 @@ h2 {
 .conversion-form input,
 .conversion-form select,
 .conversion-form button {
-    padding: 12px;
+    padding: 10px;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
-    box-sizing: border-box; /* Prevents box from overflowing */
-    transition: all 0.3s ease;
-}
-
-.conversion-form input:focus,
-.conversion-form select:focus {
-    border-color: #00b3b3;
-    box-shadow: 0 0 10px rgba(0, 179, 179, 0.5); /* Focus effect */
 }
 
 .conversion-form button {
     background-color: #4CAF50;
     color: white;
-    font-weight: bold;
-    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .conversion-form button:hover {
     background-color: #45a049;
-    transform: scale(1.05); /* Scaling effect on hover */
 }
 
-/* Result Styling */
 .result {
     font-size: 18px;
     font-weight: bold;
     color: #333;
     margin-top: 20px;
     text-align: center;
-}
-
-/* Back Button Styling */
-header {
-    text-align: right;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    z-index: 10;
-}
-
-.back-btn {
-    padding: 10px 20px;
-    background-color: #00b3b3;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.back-btn:hover {
-    background-color: #0073e6;
-    transform: scale(1.05); /* Scaling effect on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .conversion-form input,
-    .conversion-form select,
-    .conversion-form button {
-        padding: 10px;
-    }
 }
