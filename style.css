@@ -1,70 +1,95 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0073e6;
-    margin: 0;
-    padding: 0;
+html, body {
+    font-family: "Roboto", sans-serif;
 }
 
-.container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* W3CSS theme customization */
+.w3-container {
+    padding: 16px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.conversion-options {
-    list-style-type: none;
-    padding: 0;
+.w3-bar-item {
     font-size: 18px;
-    color: #555;
 }
 
-.conversion-options li {
-    margin: 10px 0;
+.w3-theme-l1 {
+    background-color: #1f1f1f !important;
+    color: white !important;
 }
 
-.conversion-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Navbar with flexbox */
+.w3-bar {
+    display: flex; /* Apply flexbox to the navbar */
+    justify-content: space-between; /* Space out elements */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-.conversion-form label {
-    font-size: 16px;
-    color: #555;
+.w3-bar-item {
+    flex-grow: 1; /* Allow menu items to grow and occupy space */
+    text-align: center; /* Align text to the center */
 }
 
-.conversion-form input,
-.conversion-form select,
-.conversion-form button {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.w3-hide-large {
+    display: block; /* Ensure the menu icon shows on smaller screens */
+}
+
+/* Adjust sidebar and navbar layout */
+.w3-sidebar {
+    display: none; /* Hide by default */
+    width: 250px;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
+    z-index: 5; /* Ensure it appears above content */
+    flex-direction: column; /* Make sidebar a column flex container */
+    flex-wrap: nowrap; /* Prevent wrapping inside the sidebar */
+}
+
+.w3-main {
+    margin-left: 250px;
+    padding-top: 20px;
+}
+
+.w3-margin-top {
+    margin-top: 16px;
+}
+
+/* Footer styles */
+#myFooter {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-}
-
-.conversion-form button {
-    background-color: #4CAF50;
+    background-color: #222;
     color: white;
-    cursor: pointer;
 }
 
-.conversion-form button:hover {
-    background-color: #45a049;
+#myFooter .w3-container {
+    padding: 16px;
 }
 
-.result {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-    text-align: center;
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    /* Make sidebar visible on mobile */
+    .w3-sidebar {
+        display: block;
+        width: 100%; /* Full-width on small screens */
+    }
+
+    .w3-main {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+
+    /* Mobile navbar items should wrap */
+    .w3-bar {
+        flex-wrap: wrap;
+    }
+
+    .w3-bar-item {
+        flex-grow: 0; /* Prevent menu items from growing on small screens */
+        width: 100%; /* Take full width on smaller screens */
+        text-align: left; /* Align items to the left */
+    }
 }
