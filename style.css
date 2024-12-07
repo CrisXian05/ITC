@@ -19,16 +19,24 @@ html, body {
 
 /* Adjust sidebar and navbar layout */
 .w3-sidebar {
+    display: none; /* Hide by default for mobile */
     width: 250px;
     position: fixed;
     top: 43px;
     left: 0;
     bottom: 0;
     background-color: #f1f1f1;
+    z-index: 5; /* Ensure it appears above content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    transition: transform 0.3s ease; /* Smooth opening/closing */
+}
+
+.w3-sidebar.active {
+    display: block; /* Show sidebar when active */
 }
 
 .w3-main {
-    margin-left: 250px;
+    margin-left: 250px; /* Default for larger screens */
     padding-top: 20px;
 }
 
@@ -50,6 +58,45 @@ html, body {
     color: white;
 }
 
-#myFooter .w3-container {
-    padding: 16px;
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    /* Adjust main content */
+    .w3-main {
+        margin-left: 0; /* Full width when sidebar is hidden */
+    }
+
+    /* Show menu button in navbar */
+    .w3-bar .w3-button.w3-right {
+        display: block;
+    }
+
+    /* Sidebar for smaller screens */
+    .w3-sidebar {
+        display: none; /* Initially hidden */
+        position: fixed;
+        width: 250px;
+        height: 100%; /* Cover full height */
+        z-index: 5;
+        overflow-y: auto;
+    }
+
+    .w3-sidebar.active {
+        display: block; /* Show sidebar on toggle */
+    }
+
+    /* Overlay effect for better visibility */
+    #myOverlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+    }
+
+    #myOverlay.active {
+        display: block; /* Show overlay when sidebar is active */
+    }
 }
