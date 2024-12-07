@@ -1,88 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CS 1130 - Introduction to Computing</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- Navbar -->
-<div class="w3-top">
-    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-        <!-- Menu Button Icon -->
-        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()">
-            <i class="fa fa-bars"></i>
-        </a>
-        <a href="#" class="w3-bar-item w3-button w3-theme-l1">Menu</a>
-    </div>
-</div>
-
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar" role="navigation">
-    
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-        <i class="fa fa-remove"></i>
-    </a>
-    <h4 class="w3-bar-item"><b>Menu</b></h4>
-    <a class="w3-bar-item w3-button w3-hover-black" href="ComputationConversion.html">Computation Conversion</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="IncomeTaxCalculator.html">Income tax</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="NthFactorial.html">Nth Factorial</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="SimplePayroll.html">Simple Payroll</a>
-</nav>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- Main content -->
-<div class="w3-main" style="margin-left:250px">
-
-    <div class="w3-row w3-padding-64">
-        <div class="w3-twothird w3-container">
-            <!-- Your existing content (factorial, tax calculation, payroll, etc.) goes here -->
-        </div>
-        <div class="w3-third w3-container">
-        </div>
-    </div>
-
-    <footer id="myFooter">
-        <div class="w3-container w3-theme-l2 w3-padding-32">
-            <h4>by Christian Jan Lopez</h4>
-            <h4>4-335</h4>
-        </div>
-        <div class="w3-container w3-theme-l1">
-
-        </div>
-    </footer>
-
-</div>
-
-<script>
-// Sidebar Functions
-var mySidebar = document.getElementById("mySidebar");
-var overlayBg = document.getElementById("myOverlay");
-
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-        overlayBg.style.display = "none";
-    } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-    }
+/* General styling */
+html, body {
+    font-family: "Roboto", sans-serif;
 }
 
-function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
+/* W3CSS theme customization */
+.w3-container {
+    padding: 16px;
 }
 
-// Your existing JavaScript logic goes here (Factorial, Tax Calculation, etc.)
-</script>
+.w3-bar-item {
+    font-size: 18px;
+}
 
-</body>
-</html>
+.w3-theme-l1 {
+    background-color: #1f1f1f !important;
+    color: white !important;
+}
+
+/* Adjust sidebar and navbar layout */
+.w3-sidebar {
+    width: 250px;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
+}
+
+.w3-main {
+    margin-left: 250px;
+    padding-top: 20px;
+}
+
+.w3-margin-top {
+    margin-top: 16px;
+}
+
+/* Result section styles */
+#w3-main .w3-text-teal {
+    color: #009688;
+}
+
+/* Footer styles */
+#myFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    color: white;
+}
+
+#myFooter .w3-container {
+    padding: 16px;
+}
