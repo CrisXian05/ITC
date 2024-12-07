@@ -1,70 +1,55 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0073e6;
-    margin: 0;
-    padding: 0;
+/* General styling */
+html, body {
+    font-family: "Roboto", sans-serif;
 }
 
-.container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* W3CSS theme customization */
+.w3-container {
+    padding: 16px;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-.conversion-options {
-    list-style-type: none;
-    padding: 0;
+.w3-bar-item {
     font-size: 18px;
-    color: #555;
 }
 
-.conversion-options li {
-    margin: 10px 0;
+.w3-theme-l1 {
+    background-color: #1f1f1f !important;
+    color: white !important;
 }
 
-.conversion-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Adjust sidebar and navbar layout */
+.w3-sidebar {
+    width: 250px;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
 }
 
-.conversion-form label {
-    font-size: 16px;
-    color: #555;
+.w3-main {
+    margin-left: 250px;
+    padding-top: 20px;
 }
 
-.conversion-form input,
-.conversion-form select,
-.conversion-form button {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.w3-margin-top {
+    margin-top: 16px;
+}
+
+/* Result section styles */
+#w3-main .w3-text-teal {
+    color: #009688;
+}
+
+/* Footer styles */
+#myFooter {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-}
-
-.conversion-form button {
-    background-color: #4CAF50;
+    background-color: #222;
     color: white;
-    cursor: pointer;
 }
 
-.conversion-form button:hover {
-    background-color: #45a049;
-}
-
-.result {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-    text-align: center;
+#myFooter .w3-container {
+    padding: 16px;
 }
