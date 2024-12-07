@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Payroll</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your external CSS -->
 </head>
 <body>
     <header>
@@ -17,25 +16,17 @@
         <section class="payroll-form">
             <h2>Add Employee</h2>
             <form id="payrollForm" onsubmit="return addEmployee()">
-                <div class="input-group">
-                    <label for="employeeName">Employee Name:</label>
-                    <input type="text" id="employeeName" required>
-                </div>
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" required>
 
-                <div class="input-group">
-                    <label for="daysWorked">Days Worked:</label>
-                    <input type="number" id="daysWorked" required>
-                </div>
+                <label for="daysWorked">Days Worked:</label>
+                <input type="number" id="daysWorked" required>
 
-                <div class="input-group">
-                    <label for="dailyRate">Daily Rate:</label>
-                    <input type="number" id="dailyRate" required>
-                </div>
+                <label for="dailyRate">Daily Rate:</label>
+                <input type="number" id="dailyRate" required>
 
-                <div class="input-group">
-                    <label for="deductionAmount">Deduction Amount:</label>
-                    <input type="number" id="deductionAmount" required>
-                </div>
+                <label for="deductionAmount">Deduction Amount:</label>
+                <input type="number" id="deductionAmount" required>
 
                 <button type="submit" class="btn">Add Employee</button>
             </form>
@@ -121,7 +112,7 @@
                     <td>${employee.grossPay.toLocaleString()}</td>
                     <td>${employee.deductionAmount.toLocaleString()}</td>
                     <td>${employee.netPay.toLocaleString()}</td>
-                    <td><button onclick="deleteEmployee(${employee.no})" class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button></td>
+                    <td><button onclick="deleteEmployee(${employee.no})" class="delete-btn">Delete</button></td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -130,81 +121,65 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #2C3E50;
+             background-color: #1f1f1f;
             color: white;
             padding: 20px;
             text-align: center;
-            border-bottom: 3px solid #34495E;
         }
 
         .back-btn {
-            background-color: #2980B9;
+            background-color: #1f1f1f;
             color: white;
             padding: 10px 20px;
+            margin-top: 20px;
             border: none;
             cursor: pointer;
-            margin-top: 10px;
         }
 
         .back-btn:hover {
-            background-color: #3498DB;
+            background-color: #1f1f1f;
         }
 
         .payroll-form, .payroll-list {
             background-color: white;
             margin: 20px auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 1000px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             margin-bottom: 20px;
             text-align: center;
-            color: #34495E;
         }
 
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 14px;
-            color: #7F8C8D;
-        }
-
-        .input-group input {
+        input[type="text"], input[type="number"] {
             width: 100%;
-            padding: 12px;
-            font-size: 14px;
-            margin-top: 6px;
-            border: 1px solid #BDC3C7;
-            border-radius: 6px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button[type="submit"] {
-            background-color: #27AE60;
+            background-color: #4CAF50;
             color: white;
-            padding: 12px;
+            padding: 10px 20px;
             border: none;
             cursor: pointer;
             width: 100%;
-            font-size: 16px;
-            border-radius: 6px;
         }
 
         button[type="submit"]:hover {
-            background-color: #2ECC71;
+            background-color: #45a049;
         }
 
         table {
@@ -216,25 +191,24 @@
         th, td {
             padding: 12px;
             text-align: center;
-            border: 1px solid #E0E0E0;
+            border: 1px solid #ddd;
         }
 
         th {
-            background-color: #2980B9;
+            background-color: #4CAF50;
             color: white;
         }
 
         .delete-btn {
-            background-color: #E74C3C;
+            background-color: #f44336;
             color: white;
-            padding: 8px 15px;
+            padding: 5px 10px;
             border: none;
             cursor: pointer;
-            border-radius: 6px;
         }
 
         .delete-btn:hover {
-            background-color: #C0392B;
+            background-color: #d32f2f;
         }
     </style>
 </body>
