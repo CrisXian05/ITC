@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computation Conversion</title>
-    <link rel="stylesheet" href="style.css"> <!-- Use the same stylesheet -->
+    <link rel="stylesheet" href="style.css"> 
     <header>
         <button onclick="window.location.href='index.html'" class="back-btn">Back to Home</button>
     </header>
@@ -106,7 +106,6 @@
     const conversionType = document.getElementById("conversion-type").value;
     let result = "";
 
-    // Checking if input is a valid number
     if (isNaN(inputValue)) {
         result = "Please enter a valid number!";
     } else {
@@ -128,7 +127,6 @@
         }
     }
 
-    // Display result
     document.getElementById("result").innerText = result;
 }
 </script>
