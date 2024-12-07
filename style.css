@@ -1,170 +1,55 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background: #f4f4f9;
-    color: #333;
+/* General styling */
+html, body {
+    font-family: "Roboto", sans-serif;
 }
 
-/* Header Styling */
-header {
-    background: #0073e6;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    position: relative;
+/* W3CSS theme customization */
+.w3-container {
+    padding: 16px;
 }
 
-/* Menu Icon Styling */
-.menu-icon {
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    left: 20px;
-}
-
-/* Sidebar Styling */
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    z-index: 100;
-}
-
-/* Sidebar links */
-.sidebar nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    padding: 8px 16px;
-    text-align: left;
-}
-
-.sidebar nav ul li a {
-    color: white;
-    text-decoration: none;
+.w3-bar-item {
     font-size: 18px;
-    display: block;
-    padding: 10px;
-    transition: 0.3s;
 }
 
-.sidebar nav ul li a:hover {
-    background-color: #0073e6;
+.w3-theme-l1 {
+    background-color: #1f1f1f !important;
+    color: white !important;
 }
 
-/* Close Button Styling */
-.close-btn {
-    font-size: 36px;
-    color: white;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-}
-
-/* Show the Sidebar */
-.sidebar.show {
+/* Adjust sidebar and navbar layout */
+.w3-sidebar {
     width: 250px;
-}
-
-/* Main Section Styling */
-main {
-    padding: 2rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping of content */
-    gap: 20px; /* Add gap between cards */
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Space between cards */
-    width: 100%;
-}
-
-/* Card Styling */
-.card {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 250px;
-    margin: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    flex-grow: 1; /* Allow the card to grow */
-    flex-basis: 250px; /* Set initial size of cards */
-    display: flex;
-    flex-direction: column;
-    min-width: 250px; /* Ensure cards don’t shrink too small */
-}
-
-.card-header {
-    background: #0073e6;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 10px 10px 0 0;
-}
-
-.card-content {
-    padding: 15px;
-    text-align: center;
-    flex-grow: 1; /* Allow content area to grow and take up space */
-}
-
-.card-footer {
-    background: #f4f4f9;
-    padding: 10px;
-    text-align: center;
-}
-
-.card-footer .btn {
-    background-color: #0073e6;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.card-footer .btn:hover {
-    background-color: #005bb5;
-}
-
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: white;
     position: fixed;
-    width: 100%;
+    top: 43px;
+    left: 0;
     bottom: 0;
+    background-color: #f1f1f1;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack cards vertically on small screens */
-    }
+.w3-main {
+    margin-left: 250px;
+    padding-top: 20px;
+}
 
-    .card {
-        width: 100%; /* Make cards take full width on small screens */
-    }
+.w3-margin-top {
+    margin-top: 16px;
+}
+
+/* Result section styles */
+#w3-main .w3-text-teal {
+    color: #009688;
+}
+
+/* Footer styles */
+#myFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    color: white;
+}
+
+#myFooter .w3-container {
+    padding: 16px;
 }
