@@ -1,93 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CS 1130 - Introduction to Computing Website</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+    <title>Your Project Title</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>CS 1130 - Introduction to Computing</h1>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Menu Icon -->
-</header>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    </div>
+</div>
 
-<!-- Sidebar Navigation -->
-<aside class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleMenu()">&#10005;</div> <!-- Close Icon -->
-    <nav>
-        <ul>
-            <li><a href="NthFactorial.html">Nth Factorial</a></li>
-            <li><a href="IncomeTaxCalculator.html">Income Tax Calculator</a></li>
-            <li><a href="ComputationConversion.html">Computation Conversion</a></li>
-            <li><a href="SimplePayroll.html">Simple Payroll</a></li> <!-- Added Simple Payroll Link -->
-        </ul>
-    </nav>
-</aside>
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-bar-item"><b>Menu</b></h4>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 1</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 2</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 3</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="#">Link 4</a>
+</nav>
 
-<main>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                Nth Factorial Calculator
-            </div>
-            <div class="card-content">
-                <p>Calculate factorials, sums, and averages for any integer input.</p>
-            </div>
-            <div class="card-footer">
-                <a href="NthFactorial.html" class="btn">Go to Calculator</a>
-            </div>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content -->
+<div class="w3-main" style="margin-left:250px">
+
+    <div class="w3-row w3-padding-64">
+        <div class="w3-twothird w3-container">
+            <!-- Your existing content (factorial, tax calculation, payroll, etc.) goes here -->
         </div>
-
-        <div class="card">
-            <div class="card-header">
-                Income Tax Calculator
-            </div>
-            <div class="card-content">
-                <p>Compute your income tax based on your taxable income using current tax brackets.</p>
-            </div>
-            <div class="card-footer">
-                <a href="IncomeTaxCalculator.html" class="btn">Go to Calculator</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                Computation Conversion
-            </div>
-            <div class="card-content">
-                <p>Convert between Fahrenheit & Celsius, and Meters & Feet with ease.</p>
-            </div>
-            <div class="card-footer">
-                <a href="ComputationConversion.html" class="btn">Go to Converter</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                Simple Payroll
-            </div>
-            <div class="card-content">
-                <p>Add and delete employees in a payroll list, calculating their gross and net pay.</p>
-            </div>
-            <div class="card-footer">
-                <a href="SimplePayroll.html" class="btn">Go to Payroll</a>
-            </div>
+        <div class="w3-third w3-container">
+            <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
         </div>
     </div>
-</main>
 
-<footer>
-    <p>By: Christian Jan Lopez (4-335)</p>
-</footer>
+    <footer id="myFooter">
+        <div class="w3-container w3-theme-l2 w3-padding-32">
+            <h4>Footer</h4>
+        </div>
+        <div class="w3-container w3-theme-l1">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </div>
+    </footer>
+
+</div>
 
 <script>
-    // Menu toggle for mobile responsiveness
-    function toggleMenu() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("show");
+// Sidebar Functions
+var mySidebar = document.getElementById("mySidebar");
+var overlayBg = document.getElementById("myOverlay");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
     }
+}
+
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+
+// Your existing JavaScript logic goes here (Factorial, Tax Calculation, etc.)
 </script>
 
 </body>
