@@ -21,7 +21,6 @@
         <p><strong>Income Tax:</strong> <span id="taxResult">N/A</span></p>
     </div>
 
-    <!-- Income Tax Bracket Table -->
     <h3>Income Tax Brackets:</h3>
     <table border="1" style="width:100%; border-collapse: collapse; text-align: center;">
         <thead>
@@ -81,7 +80,6 @@
     function calculateTax() {
         const income = parseFloat(document.getElementById("incomeInput").value);
 
-        // Ensure a valid income is entered
         if (isNaN(income) || income <= 0) {
             alert("Please enter a valid income amount.");
             return;
@@ -89,28 +87,24 @@
 
         let tax = 0;
 
-        // Apply the tax calculation logic based on the income ranges
         if (income <= 250000) {
-            tax = 0; // 0% tax rate for income <= P250,000
+            tax = 0; 
         } else if (income <= 400000) {
-            tax = (income - 250000) * 0.20; // 20% for excess over P250,000
+            tax = (income - 250000) * 0.20; 
         } else if (income <= 800000) {
-            tax = 30000 + (income - 400000) * 0.25; // P30,000 + 25% for excess over P400,000
+            tax = 30000 + (income - 400000) * 0.25; 
         } else if (income <= 2000000) {
-            tax = 130000 + (income - 800000) * 0.30; // P130,000 + 30% for excess over P800,000
+            tax = 130000 + (income - 800000) * 0.30; 
         } else if (income <= 8000000) {
-            tax = 490000 + (income - 2000000) * 0.32; // P490,000 + 32% for excess over P2,000,000
+            tax = 490000 + (income - 2000000) * 0.32; 
         } else {
-            tax = 2410000 + (income - 8000000) * 0.35; // P2,410,000 + 35% for excess over P8,000,000
+            tax = 2410000 + (income - 8000000) * 0.35; 
         }
 
-        // Format the tax result with commas for thousands, millions, etc.
         const formattedTax = tax.toLocaleString();
 
-        // Update the tax result display
         document.getElementById("taxResult").innerText = formattedTax;
 
-        // Clear the input field for new input after calculation
         document.getElementById("incomeInput").value = '';
     }
 </script>
