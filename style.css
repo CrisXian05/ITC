@@ -1,4 +1,3 @@
-
 /* General styling */
 html, body {
     font-family: "Roboto", sans-serif;
@@ -18,9 +17,26 @@ html, body {
     color: white !important;
 }
 
+/* Navbar with flexbox */
+.w3-bar {
+    display: flex; /* Apply flexbox to the navbar */
+    justify-content: space-between; /* Space out elements */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.w3-bar-item {
+    flex-grow: 1; /* Allow menu items to grow and occupy space */
+    text-align: center; /* Align text to the center */
+}
+
+.w3-hide-large {
+    display: block; /* Ensure the menu icon shows on smaller screens */
+}
+
 /* Adjust sidebar and navbar layout */
 .w3-sidebar {
-    display: none; /* Hide by default for mobile */
+    display: none; /* Hide by default */
     width: 250px;
     position: fixed;
     top: 43px;
@@ -28,26 +44,17 @@ html, body {
     bottom: 0;
     background-color: #f1f1f1;
     z-index: 5; /* Ensure it appears above content */
-    overflow-y: auto; /* Allow scrolling if content overflows */
-    transition: transform 0.3s ease; /* Smooth opening/closing */
-}
-
-.w3-sidebar.active {
-    display: block; /* Show sidebar when active */
+    flex-direction: column; /* Make sidebar a column flex container */
+    flex-wrap: nowrap; /* Prevent wrapping inside the sidebar */
 }
 
 .w3-main {
-    margin-left: 250px; /* Default for larger screens */
+    margin-left: 250px;
     padding-top: 20px;
 }
 
 .w3-margin-top {
     margin-top: 16px;
-}
-
-/* Result section styles */
-#w3-main .w3-text-teal {
-    color: #009688;
 }
 
 /* Footer styles */
@@ -59,45 +66,31 @@ html, body {
     color: white;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    /* Adjust main content */
-    .w3-main {
-        margin-left: 0; /* Full width when sidebar is hidden */
-    }
+#myFooter .w3-container {
+    padding: 16px;
+}
 
-    /* Show menu button in navbar */
-    .w3-bar .w3-button.w3-right {
-        display: block;
-    }
-
-    /* Sidebar for smaller screens */
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    /* Make sidebar visible on mobile */
     .w3-sidebar {
-        display: none; /* Initially hidden */
-        position: fixed;
-        width: 250px;
-        height: 100%; /* Cover full height */
-        z-index: 5;
-        overflow-y: auto;
+        display: block;
+        width: 100%; /* Full-width on small screens */
     }
 
-    .w3-sidebar.active {
-        display: block; /* Show sidebar on toggle */
+    .w3-main {
+        margin-left: 0;
+        padding-top: 20px;
     }
 
-    /* Overlay effect for better visibility */
-    #myOverlay {
-        display: none;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 4;
+    /* Mobile navbar items should wrap */
+    .w3-bar {
+        flex-wrap: wrap;
     }
 
-    #myOverlay.active {
-        display: block; /* Show overlay when sidebar is active */
+    .w3-bar-item {
+        flex-grow: 0; /* Prevent menu items from growing on small screens */
+        width: 100%; /* Take full width on smaller screens */
+        text-align: left; /* Align items to the left */
     }
 }
