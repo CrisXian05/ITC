@@ -101,36 +101,36 @@
 </div>
 
 <script>
-    function convert() {
-        const inputValue = parseFloat(document.getElementById("input-value").value);
-        const conversionType = document.getElementById("conversion-type").value;
-        let result = "";
+   function convert() {
+    const inputValue = parseFloat(document.getElementById("input-value").value);
+    const conversionType = document.getElementById("conversion-type").value;
+    let result = "";
 
-        // Checking if input is a valid number
-        if (isNaN(inputValue)) {
-            result = "Please enter a valid number!";
-        } else {
-            switch (conversionType) {
-                case "fahrenheit-celsius":
-                    result = (inputValue - 32) * 5 / 9 + " °C";
-                    break;
-                case "celsius-fahrenheit":
-                    result = (inputValue * 9 / 5) + 32 + " °F";
-                    break;
-                case "meters-feet":
-                    result = inputValue * 3.28084 + " feet";
-                    break;
-                case "feet-meters":
-                    result = inputValue / 3.28084 + " meters";
-                    break;
-                default:
-                    result = "Invalid conversion type!";
-            }
+    // Checking if input is a valid number
+    if (isNaN(inputValue)) {
+        result = "Please enter a valid number!";
+    } else {
+        switch (conversionType) {
+            case "fahrenheit-celsius":
+                result = ((inputValue - 32) * 5 / 9).toFixed(2) + " °C";
+                break;
+            case "celsius-fahrenheit":
+                result = ((inputValue * 9 / 5) + 32).toFixed(2) + " °F";
+                break;
+            case "meters-feet":
+                result = (inputValue * 3.28084).toFixed(2) + " feet";
+                break;
+            case "feet-meters":
+                result = (inputValue / 3.28084).toFixed(2) + " meters";
+                break;
+            default:
+                result = "Invalid conversion type!";
         }
-
-        // Display result
-        document.getElementById("result").innerText = result;
     }
+
+    // Display result
+    document.getElementById("result").innerText = result;
+}
 </script>
 
 </body>
